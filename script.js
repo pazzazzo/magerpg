@@ -1,9 +1,10 @@
 const express = require("express")
 const app = express()
 const cors = require('cors')
-
+const bodyparser = require("body-parser")
+app.use(bodyparser.json())
 app.use(cors())
-app.get("/register", (req, res) => {
+app.post("/register", (req, res) => {
     console.log(req.body);
     res.json({"res": "ok"})
     res.end()
