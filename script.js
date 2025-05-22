@@ -35,19 +35,14 @@ app.use(express.static("public"))
 
 
 app.post("/api/register", (req, res) => {
-    console.log(req.user);
-    
-
-    console.log(req.body);
-    res.json({"res": "ok"})
-    res.end()
-})
-app.post("/api/login", async (req, res) => {
     const { username, password } = req.body
     const hashPass = crypto.createHash("sha256").update(password).digest("base64")
+    if (database.getUser({username}).length > 0) {
+        return res.status(409).json({"error": "Un utilisateur existe déjà sous ce nom"})
+    }
+
     console.log(hashPass);
     
-    console.log(database.getUser({username, password: hashPass}));
     const sessionId = v4()
     database.setUser(sessionId, {
         username,
@@ -59,8 +54,22 @@ app.post("/api/login", async (req, res) => {
         maxAge: 1000 * 60 * 60 * 24 * 365
     })
     
-    res.json({"res": "ok"})
-    res.end()
+    res.redirect("/")
+})
+
+app.post("/api/login", async (req, res) => {
+    const { username, password } = req.body
+    const hashPass = crypto.createHash("sha256").update(password).digest("base64")
+    console.log(hashPass);
+    const user = database.getUser({username, password: hashPass})
+    
+    res.cookie("sessionId", user[0].id, {
+        httpOnly: true,
+        secure: false,
+        maxAge: 1000 * 60 * 60 * 24 * 365
+    })
+    
+    res.redirect("/")
 })
 
 app.listen(8080, () => {

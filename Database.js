@@ -15,9 +15,24 @@ class Database {
     save() {
         fs.writeFileSync(this.path, JSON.stringify(this.data, null, 2))
     }
+
+    /**
+     * Recherche des utilisateurs selon des critères de recherche.
+     *
+     * Les utilisateurs sont stockés sous la forme :
+     * {
+     *   [id: string]: { username: string, password: string }
+     * }
+     *
+     * @param {Object} search - Critères de recherche.
+     * @param {string} [search.id]       - Identifiant exact de l’utilisateur à récupérer.
+     * @param {string} [search.username] - Nom d’utilisateur à filtrer.
+     * @param {string} [search.password] - Mot de passe à filtrer.
+     * @returns {Array.<{id: string, username: string, password: string}>}
+     */
     getUser(search) {
         if (search.id) {
-            return [this.data.users[search.id]]
+            return [{id: search.id, ...this.data.users[search.id]}]
         } else {
             return Object.entries(this.data.users).filter(([id, item]) =>
                 Object.entries(search).every(([key, value]) =>
