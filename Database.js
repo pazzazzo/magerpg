@@ -45,6 +45,10 @@ class Database {
         this.data.users[id] = data
         this.save()
     }
+    updateUser(id, data) {
+        this.data.users[id] = {...this.data.users[id], ...data}
+        this.save()
+    }
 }
 
 module.exports = Database
